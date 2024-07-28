@@ -231,7 +231,7 @@ with tab2:
     if tab == 'Upload a Model':
         try:
             if problem == 'Classification':
-                st.metric("Test Accuracy", value="{:.2f} %".format(100*accuracy_score(y_test, y_test_pred)))
+                st.metric("Test Accuracy", value="{:.6f} %".format(100*accuracy_score(y_test, y_test_pred)))
                 st.markdown("### Classification Report:")
                 st.code("=="+classification_report(y_test, y_test_pred))
                 col1, col2 = st.columns(2, gap="medium")
@@ -273,9 +273,7 @@ with tab2:
             elif problem == 'Regression':
                 col1, col2 = st.columns(2, gap="small")
                 with col1:
-                    score = model.score(x_test, y_test)
-                    st.markdown(f'### Test Accuracy:')
-                    st.markdown(f'#### {score}')
+                    st.metric("Test Accuracy", value="{:.6f} %".format(100*model.score(y_test, y_test_pred)))
                     st.markdown("### Regression Model Metrics:")
                     mae = mean_absolute_error(y_test, y_test_pred)
                     mse = mean_squared_error(y_test, y_test_pred)
@@ -359,9 +357,7 @@ with tab2:
             elif problem_type == 'Regression':
                 col1, col2 = st.columns(2, gap="small")
                 with col1:
-                    score = model.score(x_test, y_test)
-                    st.markdown(f'### Test Accuracy:')
-                    st.markdown(f'#### {score}')
+                    st.metric("Test Accuracy", value="{:.6f} %".format(100*model.score(y_test, y_test_pred)))
                     st.markdown("### Regression Model Metrics:")
                     mae = mean_absolute_error(y_test, y_test_pred)
                     mse = mean_squared_error(y_test, y_test_pred)
