@@ -312,7 +312,7 @@ with tab2:
             st.markdown("#### Let's see if we can improve the accuracy of our model. Play around with the parameters and click on 'Train'.")
         try:
             if problem_type == 'Classification':
-                st.metric("Test Accuracy", value="{:.2f} %".format(100*accuracy_score(y_test, y_test_pred)))
+                st.metric("Test Accuracy", value="{:.6f} %".format(100*accuracy_score(y_test, y_test_pred)))
                 st.markdown("### Classification Report:")
                 st.code("=="+classification_report(y_test, y_test_pred))
                 col1, col2 = st.columns(2, gap="medium")
