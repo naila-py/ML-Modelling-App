@@ -273,7 +273,7 @@ with tab2:
             elif problem == 'Regression':
                 col1, col2 = st.columns(2, gap="small")
                 with col1:
-                    st.metric("Test Accuracy", value="{:.6f} %".format(100*model.score(x_test, y_test)))
+                    st.metric("R2 Score", value="{:.6f} %".format(100*model.score(x_test, y_test)))
                     st.markdown("### Regression Model Metrics:")
                     mae = mean_absolute_error(y_test, y_test_pred)
                     mse = mean_squared_error(y_test, y_test_pred)
@@ -357,7 +357,7 @@ with tab2:
             elif problem_type == 'Regression':
                 col1, col2 = st.columns(2, gap="small")
                 with col1:
-                    st.metric("Test Accuracy", value="{:.6f} %".format(100*model.score(x_test, y_test)))
+                    st.metric("R2 Score", value="{:.6f} %".format(100*model.score(x_test, y_test)))
                     st.markdown("### Regression Model Metrics:")
                     mae = mean_absolute_error(y_test, y_test_pred)
                     mse = mean_squared_error(y_test, y_test_pred)
